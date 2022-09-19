@@ -1,6 +1,7 @@
 import {Category} from './category'
 import {omit} from 'lodash'
 import {validate as uuidValidate} from 'uuid'
+import UniqueEntityId from '../../../@seedwork/domain/unique-entity-id.vo'
 describe('category unit tests', ()=> {
     test('constructor of category', ()=>{
 
@@ -64,24 +65,24 @@ describe('category unit tests', ()=> {
         let category = new Category({
             name: 'Movie0'})
         expect(category.id).not.toBeNull()
-        expect(uuidValidate(category.id)).toBeTruthy()
+        expect(category.id).toBeInstanceOf(UniqueEntityId)
 
         category = new Category({
             name: 'Movie1'}, null)
         expect(category.id).not.toBeNull()
-        expect(uuidValidate(category.id)).toBeTruthy()
+        expect(category.id).toBeInstanceOf(UniqueEntityId)
 
         category = new Category({
             name: 'Movie2'}, undefined)
         expect(category.id).not.toBeNull()
-        expect(uuidValidate(category.id)).toBeTruthy()
+        expect(category.id).toBeInstanceOf(UniqueEntityId)
 
-        const uuid = 'ed81b1e3-b85f-404b-8823-9e4dab9e3c51'
+        const uuid = new UniqueEntityId('ed81b1e3-b85f-404b-8823-9e4dab9e3c51')
 
         category = new Category({
             name: 'Movie3'}, uuid)
         expect(category.id).not.toBeNull()
-        expect(uuidValidate(category.id)).toBeTruthy()
+        expect(category.id).toBeInstanceOf(UniqueEntityId)
         
     })
 
