@@ -13,7 +13,6 @@ export class Category {
         this.description = this.props.description ?? null
         this.is_active = this.props.is_active ?? true,
         this.props.created_at = this.props.created_at ?? new Date 
-
     }
 
     get name() : string {
