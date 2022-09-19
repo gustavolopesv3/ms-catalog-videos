@@ -42,4 +42,21 @@ describe('category unit tests', ()=> {
 
     })
 
+    test('getter of name field', ()=>{
+        const category = new Category({
+            name: 'Movie',
+            description: 'lorem ipsum'
+        })
+
+        expect(category.name).toBe('Movie')
+    })
+
+    test('getter and setter of description', ()=> {
+        const category = new Category({
+            name: 'Movie'
+        })
+        expect(category.description).toBeNull()
+
+    })
+
 })
