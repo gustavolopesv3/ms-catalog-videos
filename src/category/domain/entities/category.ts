@@ -5,26 +5,35 @@ type CategoryProps = {
     created_at?: Date
 }
 export class Category {
-    constructor(public readonly props : CategoryProps){}
-    
+    constructor(public readonly props : CategoryProps){
+        this.description = this.props.description ?? null
+        this.is_active = this.props.is_active ?? true,
+        this.props.created_at = this.props.created_at ?? new Date 
+
+    }
 
     get name() : string {
         return this.props.name;
     }
 
-    get description() : string | undefined {
+    get description(){
         return this.props.description;
     }
+    private set description(value: string){
+        this.props.description = this.props.description ?? null
+    }
 
-    get is_active(): boolean | undefined {
+    get is_active() {
         return this.props.is_active;
     }
 
-    get created_at() : Date | undefined {
-        return this.props.created_at;
+    private set is_active(value: boolean) {
+        this.props.is_active = this.props.is_active?? false;
     }
 
-
+    get created_at() {
+        return this.props.created_at;
+    }
 }
 
 // create
