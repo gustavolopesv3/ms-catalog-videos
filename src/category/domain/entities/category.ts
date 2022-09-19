@@ -28,7 +28,7 @@ export class Category {
     }
 
     private set is_active(value: boolean) {
-        this.props.is_active = this.props.is_active?? false;
+        this.props.is_active = this.props.is_active?? true;
     }
 
     get created_at() {

@@ -1,18 +1,45 @@
 import {Category} from './category'
+import {omit} from 'lodash'
 describe('category unit tests', ()=> {
     test('constructor of category', ()=>{
-        const createdAt = new Date
 
-        const props = {
+        let category = new Category({
+            name: 'Movie'
+        })
+        let props = omit(category.props, 'created_at')
+        expect(props).toStrictEqual({
             name: 'Movie',
-            description: "Lorem ipsum",
-            is_active: true,
-            created_at: createdAt
-        }
+            description: null,
+            is_active: true
+        })
+        expect(category.props.created_at).toBeInstanceOf(Date)
 
-        const category = new Category(props)
         
-        expect(category.props).toStrictEqual(props)
+        let createdAt = new Date()
+        category = new Category({
+            name: 'Movie1',
+            description: 'lorem ipsum',
+            is_active: false,
+            created_at: createdAt
+        })
+        expect(category.props).toStrictEqual({
+            name: 'Movie1',
+            description: 'lorem ipsum',
+            is_active: false,
+            created_at: createdAt
+        })
+
+
+        category = new Category({
+            name: 'Movie2',
+            description: 'other description',
+        })
+        expect(category.props).toMatchObject({
+            name: 'Movie2',
+            description: 'other description',
+            is_active: true,
+        })
+
     })
 
 })
