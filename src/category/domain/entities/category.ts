@@ -38,12 +38,3 @@ export class Category {
         return this.props.created_at;
     }
 }
-
-// create
-
-
-// Category : uuid id
-// Category : string name
-// Category : string description
-// Category : boolean is_active
-// Category : date created_at
