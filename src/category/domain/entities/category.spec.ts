@@ -1,5 +1,6 @@
 import {Category} from './category'
 import {omit} from 'lodash'
+import {validate as uuidValidate} from 'uuid'
 describe('category unit tests', ()=> {
     test('constructor of category', ()=>{
 
@@ -57,6 +58,31 @@ describe('category unit tests', ()=> {
         })
         expect(category.description).toBeNull()
 
+    })
+
+    test('id prop', ()=>{
+        let category = new Category({
+            name: 'Movie0'})
+        expect(category.id).not.toBeNull()
+        expect(uuidValidate(category.id)).toBeTruthy()
+
+        category = new Category({
+            name: 'Movie1'}, null)
+        expect(category.id).not.toBeNull()
+        expect(uuidValidate(category.id)).toBeTruthy()
+
+        category = new Category({
+            name: 'Movie2'}, undefined)
+        expect(category.id).not.toBeNull()
+        expect(uuidValidate(category.id)).toBeTruthy()
+
+        const uuid = 'ed81b1e3-b85f-404b-8823-9e4dab9e3c51'
+
+        category = new Category({
+            name: 'Movie3'}, uuid)
+        expect(category.id).not.toBeNull()
+        expect(uuidValidate(category.id)).toBeTruthy()
+        
     })
 
 })
