@@ -1,6 +1,6 @@
 import UniqueEntityId from "../unique-entity-id.vo";
 import {validate as uuidValidate} from 'uuid'
-import InvalidUuidError from "../../../errors/invalid-uuid.error";
+import InvalidUuidError from "../../errors/invalid-uuid.error";
 
 describe('UniqueEntityId Unit tests', ()=>{
     it('should throw error when uuid is invalid', async ()=>{
