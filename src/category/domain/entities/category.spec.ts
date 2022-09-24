@@ -87,4 +87,29 @@ describe('category unit tests', ()=> {
         
     })
 
+    it('shuld update a category', ()=>{
+        const category = new Category({
+            name: 'name 1',
+        })
+
+        expect(category.name).toBe('name 1')
+        expect(category.description).toBeNull()
+
+        category.update('name 2', 'lorem ipsum')
+        expect(category.name).toBe('name 2')
+        expect(category.description).toBe('lorem ipsum')
+    })
+
+    it('shold change status category', ()=>{
+        const category = new Category({name: 'abobrinha'})
+
+        expect(category.is_active).toBeTruthy()
+
+        category.deactivate()
+        expect(category.is_active).toBeFalsy()
+
+        category.activate()
+        expect(category.is_active).toBeTruthy()
+    })
+
 })

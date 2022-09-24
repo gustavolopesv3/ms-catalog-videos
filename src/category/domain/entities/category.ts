@@ -19,11 +19,15 @@ export class Category extends Entity<CategoryProps> {
         return this.props.name;
     }
 
+    private set name(value) {
+        this.props.name = value
+    }
+
     get description(){
         return this.props.description;
     }
     private set description(value: string){
-        this.props.description = this.props.description ?? null
+        this.props.description = value ?? null
     }
 
     get is_active() {
@@ -31,10 +35,24 @@ export class Category extends Entity<CategoryProps> {
     }
 
     private set is_active(value: boolean) {
-        this.props.is_active = this.props.is_active?? true;
+        this.props.is_active = value ?? true;
     }
 
     get created_at() {
         return this.props.created_at;
     }
+
+    update(name: string, description: string){
+        this.name = name
+        this.description = description
+    }
+
+    activate(){
+        this.is_active = true
+    }
+
+    deactivate(){
+        this.is_active = false
+    }
+
 }
