@@ -15,6 +15,20 @@ export class Category extends Entity<CategoryProps> {
         this.props.created_at = this.props.created_at ?? new Date 
     }
 
+
+    update(name: string, description: string){
+        this.name = name
+        this.description = description
+    }
+
+    activate(){
+        this.is_active = true
+    }
+
+    deactivate(){
+        this.is_active = false
+    }
+
     get name() : string {
         return this.props.name;
     }
@@ -40,19 +54,6 @@ export class Category extends Entity<CategoryProps> {
 
     get created_at() {
         return this.props.created_at;
-    }
-
-    update(name: string, description: string){
-        this.name = name
-        this.description = description
-    }
-
-    activate(){
-        this.is_active = true
-    }
-
-    deactivate(){
-        this.is_active = false
     }
 
 }
