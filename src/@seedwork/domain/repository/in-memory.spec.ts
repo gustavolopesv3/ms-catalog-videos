@@ -87,6 +87,9 @@ describe('In-memory repository unit tests', ()=>{
         
         await repository.delete(entity1.id)
         expect(repository.items).toStrictEqual([entity2])
+
+        await repository.delete(entity2.uniqueEntityId)
+        expect(repository.items).toHaveLength(0)
     })
 
 })
