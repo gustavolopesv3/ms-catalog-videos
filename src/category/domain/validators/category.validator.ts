@@ -1,5 +1,5 @@
 import { IsBoolean, IsDate, IsNotEmpty, IsOptional, IsString, MaxLength } from "class-validator";
-import { ClassValidatorFields } from "../../../@seedwork/validators/class-validator-fields";
+import ClassValidatorFields from "../../../@seedwork/validators/class-validator-fields";
 import { CategoryProps } from "../entities/category";
 
 export class CategoryRules {
@@ -28,7 +28,7 @@ export class CategoryRules {
 
 export class CategoryValidator extends ClassValidatorFields<CategoryRules>{
     validate(data: CategoryProps): boolean {
-        super.validate(new CategoryRules(data))
+        return super.validate(new CategoryRules(data))
     }
 }
 
