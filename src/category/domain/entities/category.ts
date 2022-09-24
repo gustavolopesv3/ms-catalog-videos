@@ -15,7 +15,6 @@ export class Category extends Entity<CategoryProps> {
         this.props.created_at = this.props.created_at ?? new Date 
     }
 
-
     update(name: string, description: string){
         this.name = name
         this.description = description
