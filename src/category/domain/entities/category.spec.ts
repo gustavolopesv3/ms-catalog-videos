@@ -1,6 +1,5 @@
 import {Category} from './category'
 import {omit} from 'lodash'
-import {validate as uuidValidate} from 'uuid'
 import UniqueEntityId from '../../../@seedwork/domain/value-objects/unique-entity-id.vo'
 
 describe('category unit tests', ()=> {

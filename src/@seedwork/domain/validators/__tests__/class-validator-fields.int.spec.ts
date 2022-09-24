@@ -23,11 +23,11 @@ class StubClassValidatorFields extends ClassValidatorFields<StubRules>{
 }
 
 describe('ClassValidatorFeilds Integration Tests',()=>{
-    it('shoul validate with erros', ()=>{
+    it('shoul validate with errors', ()=>{
         const validator = new StubClassValidatorFields()
 
         expect(validator.validate({})).toBeFalsy()
-        expect(validator.erros).toStrictEqual({
+        expect(validator.errors).toStrictEqual({
             name: [
               'name should not be empty',
               'name must be a string',

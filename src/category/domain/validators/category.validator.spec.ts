@@ -7,7 +7,7 @@ describe('CategoryValidator tests', ()=>{
     test('invalidation cases for name field', ()=>{
         let isValid = validator.validate(null)
         expect(isValid).toBeFalsy()
-        expect(validator.erros['name']).toStrictEqual([
+        expect(validator.errors['name']).toStrictEqual([
             'name should not be empty',
             'name must be a string',
             'name must be shorter than or equal to 255 characters'
@@ -15,20 +15,20 @@ describe('CategoryValidator tests', ()=>{
 
         isValid = validator.validate({name: ''})
         expect(isValid).toBeFalsy()
-        expect(validator.erros['name']).toStrictEqual([
+        expect(validator.errors['name']).toStrictEqual([
             'name should not be empty'
           ])
 
         isValid = validator.validate({name: 12 as any})
         expect(isValid).toBeFalsy()
-        expect(validator.erros['name']).toStrictEqual([
+        expect(validator.errors['name']).toStrictEqual([
             'name must be a string',
             'name must be shorter than or equal to 255 characters'
           ])
         
         isValid = validator.validate({name: 't'.repeat(256)})
         expect(isValid).toBeFalsy()
-        expect(validator.erros['name']).toStrictEqual([
+        expect(validator.errors['name']).toStrictEqual([
             'name must be shorter than or equal to 255 characters'
         ])
     })
