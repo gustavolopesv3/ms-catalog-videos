@@ -4,7 +4,7 @@ import ValuesObject from './value-object'
 
 export default class UniqueEntityId extends ValuesObject<string>{
     
-    constructor(readonly id?: string){
+    constructor(private readonly id?: string){
         super(id || uuidv4())
         this.validate()
     }
